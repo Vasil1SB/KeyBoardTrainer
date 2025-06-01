@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="KeyBoardTrainer.Pages.Settings"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:KeyBoardTrainer.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel Spacing="16">
+            <TextBlock
+                x:Name="TitleText"
+                x:Uid="TitleText"
+                Style="{StaticResource TitleTextBlockStyle}" />
+
+            <!-- Секція для зміни тем -->
+            <StackPanel Spacing="8">
+                <TextBlock
+                    x:Name="ThemeLabel"
+                    Text="Зміна тем:"
+                    Style="{StaticResource SubtitleTextBlockStyle}" />
+
+                <RadioButtons x:Name="ThemeRadioButtons" SelectionChanged="ThemeRadioButtons_SelectionChanged">
+                    <RadioButton
+                        x:Name="ThemeLightRadio"
+                        x:Uid="ThemeLightRadio"
+                        Tag="Light"
+                        Content="Біла тема" />
+                    <RadioButton
+                        x:Name="ThemeDarkRadio"
+                        x:Uid="ThemeDarkRadio"
+                        Tag="Dark"
+                        Content="Чорна тема" />
+                </RadioButtons>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

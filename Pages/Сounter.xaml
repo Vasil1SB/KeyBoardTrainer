@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="KeyBoardTrainer.Pages.Counter"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:KeyBoardTrainer.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <Style x:Key="KeyboardButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#D3D3D3"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="2"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="MinWidth" Value="35"/>
+            <Setter Property="MinHeight" Value="45"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="FontSize" Value="13"/>
+        </Style>
+    </Page.Resources>
+
+    <ScrollViewer Padding="30">
+        <StackPanel Spacing="15">
+            <TextBlock Text="Кількість символів та слів" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center"/>
+
+            <TextBlock Text="Кількість слів та символів у тексті:" FontWeight="Bold"/>
+            <Border Background="Black" Padding="10">
+                <TextBlock x:Name="TargetTextBlock" TextWrapping="Wrap" FontSize="20" Foreground="White"/>
+            </Border>
+
+            <TextBlock Text="Введіть текст:" FontWeight="Bold"/>
+            <TextBox x:Name="InputTextBox" TextChanged="InputTextBox_TextChanged" AcceptsReturn="True" TextWrapping="Wrap" FontSize="20" Height="100"/>
+
+            <Button Content="Перевірити" Click="CheckButton_Click" Width="150" HorizontalAlignment="Center"/>
+
+            <!-- Проста клавіатура -->
+            <Grid x:Name="KeyboardGrid" Margin="0,20,0,0" Background="Transparent">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Рядок 1: Цифри та Backspace -->
+                <Button x:Name="Key_1" Content="1" Grid.Row="0" Grid.Column="0" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_2" Content="2" Grid.Row="0" Grid.Column="1" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_3" Content="3" Grid.Row="0" Grid.Column="2" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_4" Content="4" Grid.Row="0" Grid.Column="3" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_5" Content="5" Grid.Row="0" Grid.Column="4" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_6" Content="6" Grid.Row="0" Grid.Column="5" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_7" Content="7" Grid.Row="0" Grid.Column="6" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_8" Content="8" Grid.Row="0" Grid.Column="7" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_9" Content="9" Grid.Row="0" Grid.Column="8" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_0" Content="0" Grid.Row="0" Grid.Column="9" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Minus" Content="-" Grid.Row="0" Grid.Column="10" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Equal" Content="=" Grid.Row="0" Grid.Column="11" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Backspace" Content="Backspace" Grid.Row="0" Grid.Column="12" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+
+                <!-- Рядок 2: Tab та літери -->
+                <Button x:Name="Key_Tab" Content="Tab" Grid.Row="1" Grid.Column="0" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_J" Content="й" Grid.Row="1" Grid.Column="1" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_C" Content="ц" Grid.Row="1" Grid.Column="2" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_U" Content="у" Grid.Row="1" Grid.Column="3" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_K" Content="к" Grid.Row="1" Grid.Column="4" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_E" Content="е" Grid.Row="1" Grid.Column="5" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_N" Content="н" Grid.Row="1" Grid.Column="6" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_H" Content="г" Grid.Row="1" Grid.Column="7" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_Sh" Content="ш" Grid.Row="1" Grid.Column="8" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_Sch" Content="щ" Grid.Row="1" Grid.Column="9" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_Z" Content="з" Grid.Row="1" Grid.Column="10" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_HardSign" Content="х" Grid.Row="1" Grid.Column="11" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_Yi" Content="ї" Grid.Row="1" Grid.Column="12" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+
+                <!-- Рядок 3: CapsLock та літери -->
+                <Button x:Name="Key_CapsLock" Content="CapsLock" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_F" Content="ф" Grid.Row="2" Grid.Column="2" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_Gh" Content="ґ" Grid.Row="2" Grid.Column="3" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_I" Content="і" Grid.Row="2" Grid.Column="4" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_V" Content="в" Grid.Row="2" Grid.Column="5" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_A" Content="а" Grid.Row="2" Grid.Column="6" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_P" Content="п" Grid.Row="2" Grid.Column="7" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_R" Content="р" Grid.Row="2" Grid.Column="8" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_O" Content="о" Grid.Row="2" Grid.Column="9" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_L" Content="л" Grid.Row="2" Grid.Column="10" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_D" Content="д" Grid.Row="2" Grid.Column="11" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_Zh" Content="ж" Grid.Row="2" Grid.Column="12" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+
+                <!-- Рядок 4: Shift та літери -->
+                <Button x:Name="Key_ShiftLeft" Content="Shift" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_Ye" Content="є" Grid.Row="3" Grid.Column="2" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_Ya" Content="я" Grid.Row="3" Grid.Column="3" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_Ch" Content="ч" Grid.Row="3" Grid.Column="4" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_S" Content="с" Grid.Row="3" Grid.Column="5" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_M" Content="м" Grid.Row="3" Grid.Column="6" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_Y" Content="и" Grid.Row="3" Grid.Column="7" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_T" Content="т" Grid.Row="3" Grid.Column="8" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_SoftSign" Content="ь" Grid.Row="3" Grid.Column="9" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_B" Content="б" Grid.Row="3" Grid.Column="10" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Uk_Yu" Content="ю" Grid.Row="3" Grid.Column="11" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Comma" Content="," Grid.Row="3" Grid.Column="12" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+
+                <!-- Рядок 5: Ctrl, Alt, Space та ін. -->
+                <Button x:Name="Key_CtrlLeft" Content="Ctrl" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_AltLeft" Content="Alt" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Space" Content=" " Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="4" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_AltRight" Content="Alt" Grid.Row="4" Grid.Column="8" Grid.ColumnSpan="2" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Exclamation" Content="!" Grid.Row="4" Grid.Column="10" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Plus" Content="+" Grid.Row="4" Grid.Column="11" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+                <Button x:Name="Key_Colon" Content=":" Grid.Row="4" Grid.Column="12" Style="{StaticResource KeyboardButtonStyle}" Click="Key_Click"/>
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+</Page>
